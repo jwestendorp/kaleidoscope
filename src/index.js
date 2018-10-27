@@ -5,12 +5,16 @@ import { Kaleidoscope, Rotate } from "./kaleidoscope.js";
 
 import "./styles.css";
 
+// > Render several Kaleidoscope components on top of each other
+// > Move the background image of the Kaleidoscope components based on mouse movement
 class App extends React.Component {
   state = {
     x: 0,
     y: 0
   };
   render() {
+    // Functions for handing mouse/touch movement:
+    // > change x,y in state to mouse/touch coordinates
     let onMouseOver = e => {
       console.log(e.clientX, e.clientY);
       this.setState({
@@ -18,6 +22,7 @@ class App extends React.Component {
         y: e.clientY
       });
     };
+
     let touchMove = e => {
       this.setState({
         x: e.touches[0].clientX / 2,
