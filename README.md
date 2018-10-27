@@ -1,2 +1,0 @@
-# kittyscope
-Created with CodeSandbox
