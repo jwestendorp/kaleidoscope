@@ -15,10 +15,16 @@ export function Rotate(props) {
   );
 }
 
+// Returns (props.slices) amount of triangle shaped components that use (props.img) as background image
+// > first clip the slice to triangle shape, triangle size based on (props.r)
+// > rotate all triangles around the center
+// > move background image based on x,y props
 export function Kaleidoscope(props) {
+  // returns an array containing the 'slices' of the kaleidoscope
   function cali() {
     let c = [];
 
+    // returns a triangle shaped clipping mask based on angle
     let setClipPath = angle => {
       let len = Math.tan((Math.PI / 2 - angle) / 2) * 100;
 
@@ -26,8 +32,10 @@ export function Kaleidoscope(props) {
       return "polygon(0% 0%, 100% " + len + "%, " + len + "% 100%)";
     };
 
+    // Determine clipping mask based on the amount of slices prop
     let clipPath = setClipPath((Math.PI * 2) / props.slices);
 
+    // Create all slices and push to array
     for (let i = 0; i < props.slices; i += 1) {
       let sliceAngle = ((Math.PI * 2) / props.slices) * i + "rad";
       let angle = ((Math.PI * 2) / props.slices) * i;
