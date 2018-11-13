@@ -63,7 +63,9 @@ export function Kaleidoscope(props) {
                 height: "100%",
                 backgroundImage: "url(" + props.img + ")",
                 backgroundSize: 400 / props.slices + "vw",
-                backgroundPosition: props.x + "px " + props.y + "px"
+                backgroundPosition: props.x + "px " + props.y + "px",
+                transform:
+                  i % 2 == 0 ? " scale(-1, 1) rotate(90deg)" : " scale(1,1)"
               }}
             />
           </div>
